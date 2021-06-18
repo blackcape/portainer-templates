@@ -19,6 +19,8 @@ services:
     image: wordpress:latest
     depends_on:
       - db
+    ports:
+      - 80
     networks:
       - proxy
       - internal
