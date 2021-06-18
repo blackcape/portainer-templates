@@ -33,14 +33,14 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=proxy"
       # Get the routes from http
-      - "traefik.http.routers.wordpress.rule=Host(`${WORDPRESS_URL}`)"
-      - "traefik.http.routers.wordpress.entrypoints=web"
+      - "traefik.http.routers.wordpress-${PROJECT_SHORT_NAME}.rule=Host(`${WORDPRESS_URL}`)"
+      - "traefik.http.routers.wordpress-${PROJECT_SHORT_NAME}.entrypoints=web"
       # Redirect these routes to https
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.wordpress.middlewares=redirect-to-https@docker"
+      - "traefik.http.routers.wordpress-${PROJECT_SHORT_NAME}.middlewares=redirect-to-https@docker"
       # Get the routes from https
-      - "traefik.http.routers.wordpress-secured.rule=Host(`${WORDPRESS_URL}`)"
-      - "traefik.http.routers.wordpress-secured.entrypoints=websecure"
+      - "traefik.http.routers.wordpress-${PROJECT_SHORT_NAME}-secured.rule=Host(`${WORDPRESS_URL}`)"
+      - "traefik.http.routers.wordpress-${PROJECT_SHORT_NAME}-secured.entrypoints=websecure"
     volumes:
       - /etc/localtime:/etc/localtime:ro
 

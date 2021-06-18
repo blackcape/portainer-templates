@@ -32,6 +32,10 @@
 				"stackfile": "stacks/wordpress/docker-compose.yml"
 			},
 			"env": [{
+				"name": "PROJECT_SHORT_NAME",
+				"label": "Short name",
+				"description": "Project short name, example Project 1 -> project1 (use only lowercase, no special characters)"
+			},{
 				"name": "WORDPRESS_URL",
 				"label": "Wordpress url",
 				"description": "Url to access WordPress."
