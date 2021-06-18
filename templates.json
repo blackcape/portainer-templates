@@ -1,0 +1,56 @@
+{
+	"version": "2",
+	"templates": [{
+			"type": 1,
+			"title": "Registry",
+			"description": "Docker image registry",
+			"categories": [
+				"docker"
+			],
+			"platform": "linux",
+			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/registry.png",
+			"image": "registry:latest",
+			"ports": [
+				"5000/tcp"
+			],
+			"volumes": [{
+				"container": "/var/lib/registry"
+			}]
+		},
+		{
+			"type": 3,
+			"title": "Wordpress",
+			"description": "Wordpress setup with a MySQL database",
+			"note": "Deploys a Wordpress instance connected to a MySQL database.",
+			"categories": [
+				"CMS"
+			],
+			"platform": "linux",
+			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wordpress.png",
+			"repository": {
+				"url": "https://github.com/blackcape/portainer-templates",
+				"stackfile": "stacks/wordpress/docker-compose.yml"
+			},
+			"env": [{
+				"name": "WORDPRESS_URL",
+				"label": "Wordpress url",
+				"description": "Url to access WordPress."
+			},
+			{
+				"name": "MYSQL_DATABASE_NAME",
+				"label": "Database name",
+				"description": "Database name used by the WordPress."
+			},
+			{
+				"name": "MYSQL_DATABASE_USER",
+				"label": "Database username",
+				"description": "Username used by the WordPress."
+			},
+			{
+				"name": "MYSQL_DATABASE_PASSWORD",
+				"label": "Database password",
+				"description": "Password used by the WordPress."
+			}]
+		}
+	]
+}
