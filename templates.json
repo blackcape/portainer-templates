@@ -2,8 +2,8 @@
 	"version": "2",
 	"templates": [{
 			"type": 3,
-			"title": "Wordpress",
-			"description": "Wordpress setup with a MySQL database",
+			"title": "Wordpress Prod",
+			"description": "Wordpress prod setup with a MySQL database",
 			"note": "Deploys a Wordpress instance connected to a MySQL database.",
 			"categories": [
 				"CMS"
@@ -13,6 +13,45 @@
 			"repository": {
 				"url": "https://github.com/blackcape/portainer-templates",
 				"stackfile": "stacks/wordpress/docker-compose.yml"
+			},
+			"env": [{
+				"name": "PROJECT_SHORT_NAME",
+				"label": "Short name",
+				"description": "Project short name, example Project 1 -> project1 (use only lowercase, no special characters)"
+			},{
+				"name": "WORDPRESS_URL",
+				"label": "Wordpress url",
+				"description": "Url to access WordPress."
+			},
+			{
+				"name": "MYSQL_DATABASE_NAME",
+				"label": "Database name",
+				"description": "Database name used by the WordPress."
+			},
+			{
+				"name": "MYSQL_DATABASE_USER",
+				"label": "Database username",
+				"description": "Username used by the WordPress."
+			},
+			{
+				"name": "MYSQL_DATABASE_PASSWORD",
+				"label": "Database password",
+				"description": "Password used by the WordPress."
+			}]
+		},
+		{
+			"type": 3,
+			"title": "Wordpress Stage",
+			"description": "Wordpress stage setup with a MySQL database",
+			"note": "Deploys a Wordpress instance connected to a MySQL database.",
+			"categories": [
+				"CMS"
+			],
+			"platform": "linux",
+			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wordpress.png",
+			"repository": {
+				"url": "https://github.com/blackcape/portainer-templates",
+				"stackfile": "stacks/wordpress-stage/docker-compose.yml"
 			},
 			"env": [{
 				"name": "PROJECT_SHORT_NAME",
